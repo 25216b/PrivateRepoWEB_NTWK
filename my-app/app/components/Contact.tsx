@@ -24,6 +24,7 @@ export default async function Contacts(props: contactsProps) {
                     New task: <input name="message" />
                 </label>
                 <button
+                    type="submit" 
                     className="absolute top-4 right-4 bg-[#667eea] text-white w-8 h-8 rounded-full
                    flex items-center justify-center text-xl font-bold
                    hover:bg-[#5566d4] transition cursor-pointer"
