@@ -42,7 +42,7 @@ export default function RootLayout({
         sectionName="Education"
           title="industrial computer science"
           company="HE2B-ESI"
-          date="202444444444445">
+          date="2024-2025">
             Graduated with an Engineering Diploma after completing extensive coursework and practical projects that strengthened my abilities in design, analysis, teamwork, and the application of engineering principles in real scenarios.
           </CVEntry>
           <CVEntry
