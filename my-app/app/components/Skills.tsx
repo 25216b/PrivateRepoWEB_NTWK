@@ -6,7 +6,7 @@ import { type ReactNode } from 'react'
 import { getSkills, addSkill } from '../../lib/tasks'
 
 
-export default async function Contacts() {
+export default async function Skills() {
     const skills = await getSkills()
     return (
         <section className="relative max-w-[1000px] mx-auto my-[40px] p-[30px] bg-white rounded-[8px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]">

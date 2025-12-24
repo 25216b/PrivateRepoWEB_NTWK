@@ -6,7 +6,8 @@ import HeaderTitle from "./components/HeaderTitle";
 import SectionId from "./components/SectionId";
 import Footer from "./components/Footer";
 import CVEntry from "./components/CvEntry";
-import Contacts from "./components/Contact";
+
+import Skills from "./components/Skills";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,9 +53,9 @@ export default function RootLayout({
             internship as an engineer in a national project where i had to develop ui and simple code for researcher and find solution on how to detectenvironement change
             The challenge was that ai was prohibated so algorithmic and physics solution were the way to go
           </CVEntry>
-          <Contacts>
+          <Skills>
 
-          </Contacts>
+          </Skills>
           
         {children}
         <Footer></Footer>
