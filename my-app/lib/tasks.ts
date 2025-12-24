@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation'
 
 export async function getSkills() {
   return await db.select().from(skillsTable)
+  
 }
 
 export async function addSkill(form: FormData) {
@@ -29,10 +30,14 @@ export async function editSkill(form: FormData) {
       done: form.get('done') === 'on',
     })
     .where(eq(skillsTable.id, String(form.get('id'))))
+
+      revalidatePath('/') 
   redirect((await headers()).get('referer') ?? '/')
 }
 
 export async function removeSkill(id: string) {
   await db.delete(skillsTable).where(eq(skillsTable.id, id))
+
+    revalidatePath('/') 
   redirect((await headers()).get('referer') ?? '/')
 }
