@@ -1,18 +1,18 @@
 'use server'
 
 import { db } from '@/db'
-import { tasksTable } from '@/db/schema'
+import { skillsTable } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-export async function getTasks() {
-  return await db.select().from(tasksTable)
+export async function getSkills() {
+  return await db.select().from(skillsTable)
 }
 
-export async function addTask(form: FormData) {
-  await db.insert(tasksTable).values({
+export async function addSkill(form: FormData) {
+  await db.insert(skillsTable).values({
     title: String(form.get('title')),
     done: false,
   })
@@ -21,18 +21,18 @@ export async function addTask(form: FormData) {
   redirect((await headers()).get('referer') ?? '/')
 }
 
-export async function editTask(form: FormData) {
+export async function editSkill(form: FormData) {
   await db
-    .update(tasksTable)
+    .update(skillsTable)
     .set({
       title: String(form.get('title')),
       done: form.get('done') === 'on',
     })
-    .where(eq(tasksTable.id, String(form.get('id'))))
+    .where(eq(skillsTable.id, String(form.get('id'))))
   redirect((await headers()).get('referer') ?? '/')
 }
 
-export async function removeTask(id: string) {
-  await db.delete(tasksTable).where(eq(tasksTable.id, id))
+export async function removeSkill(id: string) {
+  await db.delete(skillsTable).where(eq(skillsTable.id, id))
   redirect((await headers()).get('referer') ?? '/')
 }

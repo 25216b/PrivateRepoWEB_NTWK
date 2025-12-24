@@ -3,16 +3,16 @@ import { type ReactNode } from 'react'
 
 //import { createTask, getTasks } from './Tickets'
 
-import { getTasks, addTask } from '../../lib/tasks'
+import { getSkills, addSkill } from '../../lib/tasks'
 
 
 export default async function Contacts() {
-    const tasks = await getTasks()
+    const skills = await getSkills()
     return (
         <section className="relative max-w-[1000px] mx-auto my-[40px] p-[30px] bg-white rounded-[8px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
 
             {/* + Button */}
-            <form action={addTask}>
+            <form action={addSkill}>
                 <label>
                     New task: <input name="title" />
                 </label>
@@ -25,8 +25,8 @@ export default async function Contacts() {
                 </button>
             </form>
             <ul>
-                {tasks.map((task) => (
-                    <li key={task.id}>{task.title}</li>
+                {skills.map((skill) => (
+                    <li key={skill.id}>{skill.title}</li>
                 ))}
             </ul>
 
