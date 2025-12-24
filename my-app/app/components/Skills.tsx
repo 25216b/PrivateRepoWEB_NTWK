@@ -1,10 +1,8 @@
-
 import { type ReactNode } from 'react'
 
 //import { createTask, getTasks } from './Tickets'
 
 import { getSkills, addSkill } from '../../lib/tasks'
-
 
 export default async function Skills() {
     const skills = await getSkills()
@@ -14,7 +12,7 @@ export default async function Skills() {
             {/* + Button */}
             <form action={addSkill}>
                 <label>
-                    New task: <input name="title" />
+                    New skill: <input name="title" />
                 </label>
                 <button 
                     className="absolute top-4 right-4 bg-[#667eea] text-white w-8 h-8 rounded-full
@@ -26,11 +24,30 @@ export default async function Skills() {
             </form>
             <ul>
                 {skills.map((skill) => (
-                    <li key={skill.id}>{skill.title}</li>
+                    <li key={skill.id} className="flex items-center justify-between py-2 border-b border-gray-200">
+                        <span>{skill.title}</span>
+                        <div className="flex gap-2">
+                            {/* Edit Button */}
+                            <button
+                                className="bg-blue-500 text-white w-8 h-8 rounded flex items-center justify-center
+                                hover:bg-blue-600 transition cursor-pointer"
+                                title="Éditer"
+                            >
+                                ✏️
+                            </button>
+                            
+                            {/* Delete Button */}
+                            <button
+                                className="bg-red-500 text-white w-8 h-8 rounded flex items-center justify-center
+                                hover:bg-red-600 transition cursor-pointer"
+                                title="Supprimer"
+                            >
+                                🗑️
+                            </button>
+                        </div>
+                    </li>
                 ))}
             </ul>
-
-
 
         </section>
     )
